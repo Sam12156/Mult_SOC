@@ -1,0 +1,45 @@
+# .gitignore for a Vivado / Vitis 2023.1 project
+#
+# Tracked (needed to rebuild the design):
+#   mult_soc_sh.xpr            Vivado project file
+#   mult_soc_sh.srcs/          block design (.bd) and IP settings (.xci)
+#   ip_repo/                   custom AXI-Lite IPs (mult_16_bit, sc_fifo_axi)
+#   multiplier_sh/             multiplier module + testbench (steps 1-2)
+#   *.xsa                      exported hardware (includes the bitstream)
+#   mult_soc_vitis/<app>/      Vitis application sources and project files
+#   mult_soc_vitis/<plat>/     Vitis platforms (BSP with drivers set to none)
+#
+# Ignored: everything Vivado/Vitis regenerates on its own.
+
+## Vivado generated folders (rebuilt by synthesis / Generate Output Products)
+*.cache/
+*.gen/
+*.runs/
+*.hw/
+*.ip_user_files/
+*.sim/
+.Xil/
+
+## Vivado logs, journals and backups
+*.jou
+*.log
+*.str
+*.backup.*
+webtalk*
+
+## Block design outputs regenerated from the .bd file
+*.srcs/sources_1/bd/*/hdl/
+*.srcs/sources_1/bd/*/hw_handoff/
+*.srcs/sources_1/bd/*/ipshared/
+*.srcs/sources_1/bd/*/synth/
+*.srcs/sources_1/bd/*/sim/
+
+## Vitis workspace (settings are specific to this PC)
+.metadata/
+RemoteSystemsTempFiles/
+.analytics
+
+## Vitis build outputs (rebuilt with the hammer button)
+Debug/
+Release/
+logs/
