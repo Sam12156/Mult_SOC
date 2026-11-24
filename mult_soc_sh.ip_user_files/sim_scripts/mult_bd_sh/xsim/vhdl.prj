@@ -1,0 +1,8 @@
+vhdl xil_defaultlib  \
+"../../../bd/mult_bd_sh/ip/mult_bd_sh_rst_ps7_0_50M_0/sim/mult_bd_sh_rst_ps7_0_50M_0.vhd" \
+"../../../bd/mult_bd_sh/ip/mult_bd_sh_axi_bram_ctrl_0_0/sim/mult_bd_sh_axi_bram_ctrl_0_0.vhd" \
+"../../../bd/mult_bd_sh/ipshared/bedc/src/sc_fifo.vhd" \
+"../../../bd/mult_bd_sh/ip/mult_bd_sh_sc_fifo_axi_0_0/sim/mult_bd_sh_sc_fifo_axi_0_0.vhd" \
+
+# Do not sort compile order
+nosort

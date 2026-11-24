@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="sdx.custom.platform.repository.locations" value="C:\Users\pog12\Documents\Vivado\mult_soc_sh\mult_soc_vitis\mult_plat\export\mult_plat;C:\Users\pog12\Documents\Vivado\mult_soc_sh\mult_soc_vitis\mult_bram_plat\export\mult_bram_plat;C:\Users\pog12\Documents\Vivado\mult_soc_sh\mult_soc_vitis\mult_fifo_plat\export\mult_fifo_plat"/>
+	<item key="sdx.custom.platform.repository.last.directory.dialog.location" value="C:\Users\pog12\Documents\Vivado\mult_soc_sh\mult_soc_vitis\mult_fifo_plat\export\mult_fifo_plat"/>
+</section>
