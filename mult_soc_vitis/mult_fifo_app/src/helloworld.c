@@ -117,7 +117,7 @@ int main()
     xil_printf("\nECE 520/L - Custom AXI FIFO IP Lab - Sammy Hamed\n");
     xil_printf("Start of FIFO Test\n\n");
 
-    /* ---- IP information ---- */
+    //IP info
     uint32_t rev    = Xil_In32(FPGA_REV_REG);
     uint32_t config = Xil_In32(CONFIG_REG);
     uint32_t thresh = Xil_In32(THRESHOLD_REG);
@@ -134,11 +134,11 @@ int main()
     xil_printf("THRESHOLD_REG = 0x%08x (ALMOST_FULL=%d, ALMOST_EMPTY=%d)\n\n",
                thresh, af_thresh, ae_thresh);
 
-    /* ---- Start from a known state ---- */
+    // Start from a known state
     Xil_Out32(FIFO_RST_REG, 1);
-    print_status("After reset");
+    print_status("After reset\n");
 
-    /* ---- Fill the FIFO ---- */
+    //Fill the FIFO
     xil_printf("\nPushing %d words:\n", depth);
     for (uint32_t i = 0; i < depth; i++) {
         uint16_t data = (uint16_t)((i + 1) * 0x0101);   /* 0x0101, 0x0202, ... */
@@ -147,11 +147,11 @@ int main()
     }
     print_status("\nAfter filling");
 
-    /* ---- Push while full: should be ignored ---- */
+    //Push while full
     fifo_push(0xBEEF);
     print_status("After push while full");
 
-    /* ---- Empty the FIFO and check the order ---- */
+    // Empty the FIFO and check output
     xil_printf("\nPopping %d words:\n", depth);
     int errors = 0;
     for (uint32_t i = 0; i < depth; i++) {
@@ -170,7 +170,7 @@ int main()
     }
     print_status("\nAfter emptying");
 
-    /* ---- Pop while empty: RD_VALID should stay 0 ---- */
+    // Pop while empty: RD_VALID should stay 0
     uint16_t dummy;
     if (fifo_pop(&dummy)) {
         xil_printf("Pop while empty: FAIL (got 0x%04x)\n", dummy);
@@ -179,7 +179,7 @@ int main()
         xil_printf("Pop while empty: PASS (RD_VALID stayed 0)\n");
     }
 
-    /* ---- Software reset clears the FIFO ---- */
+    //Software reset clears the FIFO
     for (int i = 0; i < 5; i++)
         fifo_push((uint16_t)(0x1000 + i));
     print_status("\nAfter 5 pushes");
